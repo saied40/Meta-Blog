@@ -1,17 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Home from './pages/home';
+import Blogs from './pages/blogs';
+import SingleBlog from './pages/singleBlog';
+import Author from './pages/author';
+
+export default function Context() {
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") === "light" || localStorage.getItem("theme") === "dark"
+      ? localStorage.getItem("theme")
+      : "light"
+  );
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    };
+  }, [theme]);
+
+  function changeTheme() {
+    let newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  const Router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home theme={theme} changeTheme={changeTheme} />,
+    },{
+      path: "/blogs",
+      element: <Blogs theme={theme} changeTheme={changeTheme} />,
+    },{
+      path: "/blog",
+      element: <SingleBlog theme={theme} changeTheme={changeTheme} />,
+    },{
+      path: "/author",
+      element: <Author theme={theme} changeTheme={changeTheme} />,
+    }
+  ]);
+
+  return (
+    <RouterProvider router={Router} />
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Context />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
