@@ -74,7 +74,7 @@ svg {
 }
 
 .nav-link {
-  @apply text-[var(--color-01)] text-base font-normal text-nowrap max-lg:inline-block max-lg:w-full max-lg:p-4 max-lg:rounded-full max-lg:bg-[var(--color-02)] max-lg:text-xl max-lg:font-bold lg:hover:text-[var(--primary-color)] transition-colors duration-200;
+  @apply text-[var(--color-01)] text-base font-medium text-nowrap max-lg:inline-block max-lg:w-full max-lg:p-4 max-lg:rounded-full max-lg:bg-[var(--color-02)] max-lg:text-xl max-lg:font-bold lg:hover:text-[var(--primary-color)] transition-colors duration-200;
 }
 
 .pipeline-before {

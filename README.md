@@ -6,4 +6,4 @@ but I built the front-end only
 
 I built it using React & Tailwind css
 
-you check the Live Demo [here](https://meta-blog-omega.vercel.app/)
+you check the Live Demo [here](https://meta-blog-roan.vercel.app/)
