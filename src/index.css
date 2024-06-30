@@ -126,7 +126,7 @@ svg {
   @apply text-[var(--primary-color)];
 }
 
-.post-card .card-content .info .data {
+.post-card .card-content .info .date {
   @apply text-base text-slate-400;
 }
 
