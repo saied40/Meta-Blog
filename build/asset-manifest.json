@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.b18ef934.css",
+    "main.css": "/static/css/main.5ce2701d.css",
     "main.js": "/static/js/main.3b073678.js",
     "static/media/landing-dark.png": "/static/media/landing-dark.386e3f07d47fc4875686.png",
     "static/media/landing-light.png": "/static/media/landing-light.585e98dc70c20edfe476.png",
@@ -18,11 +18,11 @@
     "static/media/post-03-author.png": "/static/media/post-03-author.03c9717a82701ca3f560.png",
     "static/media/post-08-author.png": "/static/media/post-08-author.03c9717a82701ca3f560.png",
     "index.html": "/index.html",
-    "main.b18ef934.css.map": "/static/css/main.b18ef934.css.map",
+    "main.5ce2701d.css.map": "/static/css/main.5ce2701d.css.map",
     "main.3b073678.js.map": "/static/js/main.3b073678.js.map"
   },
   "entrypoints": [
-    "static/css/main.b18ef934.css",
+    "static/css/main.5ce2701d.css",
     "static/js/main.3b073678.js"
   ]
 }
