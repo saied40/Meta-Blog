@@ -7,7 +7,7 @@ import Blogs from './pages/blogs';
 import SingleBlog from './pages/singleBlog';
 import Author from './pages/author';
 
-export default function Context() {
+const Context = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") === "light" || localStorage.getItem("theme") === "dark"
       ? localStorage.getItem("theme")
