@@ -5,14 +5,7 @@ import logoDark from "../../img/logo-dark.png";
 import searchIcon from "../../img/search-icon.png";
 
 export default function Navbar({ theme, changeTheme }) {
-  const menubarBtn = useRef();
-  const menubar = useRef();
-  const parent = useRef();
-  const toggleMenubar = () => {
-    // console.log(menubarBtn.current, menubar.current);
-    parent.current.classList.toggle("open");
-    // menubar.current.style.setProperty("left", menubarBtn.current.classList.contains("open") ? "0%" : "110%");
-  };
+  const menubarParent = useRef();
   return (
     <header className="w-full sticky top-0 left-0 z-50 before:absolute before:w-full before:h-full before:backdrop-blur-md before:-z-10 mb-6">
       <div className="container flex items-center justify-between py-8">
@@ -24,20 +17,18 @@ export default function Navbar({ theme, changeTheme }) {
         </Link>
         <div
           className="max-lg:order-3 flex items-center justify-between"
-          ref={parent}
+          ref={menubarParent}
         >
           <div
             role="button"
             className="menubarBtn w-10 flex flex-col items-end justify-between gap-2 mx-6 py-2 lg:hidden"
-            onClick={toggleMenubar}
-            ref={menubarBtn}
+            onClick={() => menubarParent.current.classList.toggle("open")}
           >
             <span className="inline-block bg-primary h-1 w-full transition-all duration-500"></span>
             <span className="inline-block bg-primary h-1 w-3/4 transition-all duration-500"></span>
             <span className="inline-block bg-primary h-1 w-1/2 transition-all duration-500"></span>
           </div>
           <ul
-            ref={menubar}
             className="menubar flex items-center gap-10 max-lg:fixed max-lg:flex-col max-lg:w-full max-lg:h-full max-lg:-top-full max-lg:left-0 max-lg:pt-36 max-lg:backdrop-blur-xl max-lg:text-center max-lg:-z-10 transition-all duration-1000"
           >
             <li className="sm:hidden w-4/5">
@@ -100,7 +91,7 @@ const Form = ({ className, changeTheme }) => {
       <button
         type="button"
         className="bg-[var(--color-02)] w-12 h-7 rounded-3xl cursor-pointer"
-        onClick={() => changeTheme(true)}
+        onClick={changeTheme}
       >
         <span className="inline-block bg-white w-6 h-6 max-sm:h-4/5 rounded-full m-[2px] transition-all duration-300 -translate-x-[40%] dark:translate-x-[40%]">
           <svg

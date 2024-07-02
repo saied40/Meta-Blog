@@ -22,6 +22,11 @@ const Context = () => {
     };
   }, [theme]);
 
+  useEffect(() => {
+    document.body.parentElement.classList.add("max-sm:text-[10px]", "scroll-smooth");
+    document.body.classList.add("bg-body", "font-body", "scroll-smooth");
+  }, [])
+
   function changeTheme() {
     let newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -32,21 +37,22 @@ const Context = () => {
     {
       path: "/",
       element: <Home theme={theme} changeTheme={changeTheme} />,
-    },{
+    },
+    {
       path: "/blogs",
       element: <Blogs theme={theme} changeTheme={changeTheme} />,
-    },{
+    },
+    {
       path: "/blog",
       element: <SingleBlog theme={theme} changeTheme={changeTheme} />,
-    },{
+    },
+    {
       path: "/author",
       element: <Author theme={theme} changeTheme={changeTheme} />,
-    }
+    },
   ]);
 
-  return (
-    <RouterProvider router={Router} />
-  );
+  return <RouterProvider router={Router} />
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

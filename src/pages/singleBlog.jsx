@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Ads from "./parts/ads";
 import Navbar from "./parts/nav";
@@ -9,7 +9,10 @@ import single1 from "../img/single-post-1.png";
 import single2 from "../img/single-post-2.png";
 
 export default function SingleBlog({ theme, changeTheme }) {
-  document.title = "Meta Blog | Single Post";
+  useEffect(() => {
+    document.title = "Meta Blog | Single Post";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar theme={theme} changeTheme={changeTheme} />
@@ -26,7 +29,10 @@ export default function SingleBlog({ theme, changeTheme }) {
               </h2>
             </div>
             <div className="flex gap-5 items-center">
-              <Link to={"/author"} className="flex gap-2 items-center cursor-pointer">
+              <Link
+                to={"/author"}
+                className="flex gap-2 items-center cursor-pointer"
+              >
                 <img src={author1} alt="author.png" className="w-9" />
                 <h4 className="text-base text-slate-400 transition-colors hover:text-[var(--primary-color)]">
                   Jason Francisco

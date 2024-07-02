@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Posts from "./parts/posts";
 import Navbar from "./parts/nav";
 import Footer from "./parts/footer";
-import Posts from "./parts/posts";
 
 import post02author from "../img/post-02-author.png";
 import facebook from "../img/facebook.png";
@@ -11,7 +11,10 @@ import instagram from "../img/instagram.png";
 import youtube from "../img/youtube.png";
 
 export default function Author({ theme, changeTheme }) {
-  document.title = "Meta Blog | Author Page";
+  useEffect(() => {
+    document.title = "Meta Blog | Author Page";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar theme={theme} changeTheme={changeTheme} />
@@ -21,7 +24,9 @@ export default function Author({ theme, changeTheme }) {
             <div className="flex items-center gap-4 mx-auto">
               <img src={post02author} alt="" className="rounded-full" />
               <div>
-                <h3 className="text-xl font-medium text-primary">Jonathan Doe</h3>
+                <h3 className="text-xl font-medium text-primary">
+                  Jonathan Doe
+                </h3>
                 <p className="text-[var(--color-15)]">Collaborator & Editor</p>
               </div>
             </div>

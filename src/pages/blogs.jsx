@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./parts/nav";
-import Footer from "./parts/footer";
 import Posts from "./parts/posts";
 import Ads from "./parts/ads";
+import Navbar from "./parts/nav";
+import Footer from "./parts/footer";
 
 import landingDark from "../img/landing-dark.png";
 import landingLight from "../img/landing-light.png";
 import userImg from "../img/user.png";
 
 export default function Blogs({ theme, changeTheme }) {
-  document.title = "Meta Blog | Blog Listing";
+  useEffect(() => {
+    document.title = "Meta Blog | Blog Listing";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar theme={theme} changeTheme={changeTheme} />
@@ -70,4 +73,4 @@ export default function Blogs({ theme, changeTheme }) {
       <Footer theme={theme} />
     </>
   );
-};
+}
